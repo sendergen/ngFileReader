@@ -40,6 +40,10 @@
       */
       onSelected:function( scope, files ){
 
+        if(files.length === 1){
+          scope.fileName = files[0].name;
+        }
+
         scope.onSelected( {files:files} );
       },
 
@@ -80,12 +84,13 @@
         readEncoding:"=",
         accept:"@",
         labelClass:"@",
+        fileNameClass:"@",
         buttonIcon:"@",
         buttonText:"@",
         filereader:"@"
       },
 
-      template:'<label class="{{labelClass}}"><i class="{{buttonIcon}}" ng-if="buttonIcon"></i> {{buttonText}} <input hidden style="display: none;" type="file" accept="{{accept}}" /> </label>',
+      template:'<label class="{{labelClass}}"><i class="{{buttonIcon}}" ng-if="buttonIcon"></i> {{buttonText}} <input hidden style="display: none;" type="file" accept="{{accept}}" /> </label> <span class="{{fileNameClass || \'\'}}">{{fileName || \'\'}}</span>',
 
       /**
       * @param {Scope} scope
