@@ -79,10 +79,13 @@
         readMethod:"=",
         readEncoding:"=",
         accept:"@",
+        labelClass:"@",
+        buttonIcon:"@",
+        buttonText:"@",
         filereader:"@"
       },
 
-      template:"<input type='file' accept='{{accept}}' />",
+      template:'<label class="{{labelClass}}"><i class="{{buttonIcon}}" ng-if="buttonIcon"></i> {{buttonText}} <input hidden style="display: none;" type="file" accept="{{accept}}" /> </label>',
 
       /**
       * @param {Scope} scope
